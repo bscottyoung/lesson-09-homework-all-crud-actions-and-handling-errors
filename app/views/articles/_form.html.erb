@@ -1,0 +1,50 @@
+<% if @article.errors.any?%>
+	<div id='error explanation' %>
+		<h3><%= pluralize(@article.errors.count, "error") %> prohibited this article from being created: </h3>
+			<ul>
+				<% @article.errors.full_message do |message| %>
+					<li><% message %></li>
+				<% end %>
+			</ul>
+	</div>
+<% end %>
+
+<%= form_for @article do |f| %>
+	<div>
+		<%= f.label :author_first_name, 'Author First Name' %>
+		<%= f.text_field :author_first_name %>
+	</div>
+
+	<div>
+		<%=f.label :author_last_name, "Author Last Name" %>
+		<%=f.text_field :author_last_name %>
+	</div>
+
+	<div>
+		<%=f.label :article_year, "Year Published" %>
+		<%=f.text_field :article_year %>
+	</div>
+
+	<div>
+		<%=f.label :pub_name, "Publication" %>
+		<%=f.text_field :pub_name %>
+	</div>
+
+	<div>
+		<%=f.label :title, "Article Title" %>
+		<%=f.text_field :title %>
+	</div>
+
+	<div>
+		<%=f.label :article_pg, "Start page" %>
+		<%=f.text_field :article_pg %>
+	</div>	
+
+	<div>
+		<%=f.label :body, "Description" %>
+		<br>
+		<%=f.text_area :body, size: "45x5" %>
+	</div>	
+
+	<div><%= f.submit %></div>
+<% end %>

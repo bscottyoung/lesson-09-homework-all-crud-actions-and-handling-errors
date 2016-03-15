@@ -1,0 +1,8 @@
+<h1>Selected Article Display</h1>
+
+<%=render 'form' %> 
+<%  %>
+
+<%= link_to "Home", articles_path %>
+<%= link_to 'Edit', edit_article_path(@article) %>	
+<%= link_to 'Delete Article', article_path(@article), method: :delete, data: {Confirm: 'Are you sure?'} %>
